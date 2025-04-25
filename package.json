@@ -1,0 +1,23 @@
+{
+  "name": "y",
+  "version": "2.0.0",
+  "description": "An app that let's you say happy birthday to your friend in a nerdy way.",
+  "license": "MIT",
+  "author": "Tsingper",
+  "type": "commonjs",
+  "main": "rspack.config.js",
+  "scripts": {
+    "dev": "rspack serve",
+    "build": "chmod +x ./node_modules/.bin/rspack && rspack build",
+    "serve": "rspack serve"
+  },
+  "dependencies": {
+    "happy-birthday": "file:",
+    "y": "file:"
+  },
+  "devDependencies": {
+    "@rspack/cli": "^0.5.0",
+    "@rspack/core": "^0.5.0",
+    "@rspack/plugin-html": "^0.5.0"
+  }
+}
