@@ -8,11 +8,12 @@ html {
 }
 
 body {
-  color: #fff;
   margin: 0;
   height: 100vh;
   width: 100vw;
+  color: #fff;
   font-family: sans-serif;
+  overflow-x: hidden;
 }
 
 canvas {
@@ -32,13 +33,13 @@ canvas {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;
   filter: blur(8px);
+  z-index: -1;
 }
 
 .container {
+  width: 100%;
   height: 100vh;
-  width: 95%;
   margin: 0 auto;
   text-align: center;
   visibility: hidden;
@@ -47,31 +48,31 @@ canvas {
   padding: 1rem;
 }
 
-.container div.six {
+.container > div {
+  position: absolute;
+  top: 20vh;
+  left: 0;
+  right: 0;
+}
+
+.container .six {
   top: 15vh;
   z-index: 1;
 }
 
-.container div.seven,
-.container div.eight {
-  width: 100vw;
-  height: 100vh;
+.container .seven,
+.container .eight {
   position: fixed;
   top: 0;
-}
-
-.container > div {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 20vh;
+  width: 100vw;
+  height: 100vh;
 }
 
 .one {
-  font-size: 4rem;
+  font-size: clamp(2rem, 6vw, 4.5rem);
 }
 
-.one > img {
+.one img {
   vertical-align: middle;
   margin-bottom: 10px;
   max-width: 100%;
@@ -79,12 +80,12 @@ canvas {
 }
 
 .two {
-  font-size: 1.2rem;
-  font-weight: lighter;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-weight: 300;
 }
 
 .three {
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 5vw, 3rem);
 }
 
 .four .text-box {
@@ -93,13 +94,13 @@ canvas {
   margin: 0 auto;
   border: 3px solid #aaa;
   border-radius: 5px;
-  padding: 10px;
+  padding: 1rem;
   position: relative;
 }
 
 .text-box p {
-  margin: 0;
   text-align: left;
+  margin: 0;
 }
 
 .text-box span {
@@ -107,40 +108,51 @@ canvas {
 }
 
 .text-box .fake-btn {
-  position: absolute;
-  right: 5px;
-  bottom: 2px;
+  background: #03C160;
   color: #fff;
-  background-color: #03C160;
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   border-radius: 8px;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
 }
 
 .five p {
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 4vw, 2rem);
   position: absolute;
   left: 0;
   right: 0;
 }
 
 .idea-3 strong {
+  display: inline-block;
   padding: 3px 5px;
   border-radius: 3px;
-  display: inline-block;
 }
 
-.five .idea-5 {
-  font-size: 4rem;
-}
-
-.idea-5 span,
-.idea-6 span,
-.wish-hbd span {
-  display: inline-block;
+.idea-5 {
+  font-size: clamp(2rem, 8vw, 4rem);
 }
 
 .idea-6 span {
-  font-size: 15rem;
+  display: inline-block;
+  font-size: clamp(5rem, 20vw, 15rem);
+}
+
+.wish-hbd {
+  font-size: clamp(2rem, 6vw, 3em);
+  margin: 0;
+}
+
+.wish h5 {
+  font-weight: 300;
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  margin-top: 10px;
+}
+
+.nine p {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-weight: 300;
 }
 
 .six {
@@ -148,41 +160,27 @@ canvas {
 }
 
 .six img {
-  display: inline-block;
   max-width: 100%;
   height: auto;
 }
 
 .six .hat {
   position: absolute;
-  width: 80px;
-  top: -120px;
-  left: 49%;
-  transform: scale(1.1);
+  width: clamp(40px, 10vw, 80px);
+  top: -10vh;
+  left: 50%;
+  transform: translateX(-50%) scale(1.1);
 }
 
 .baloons img {
-  display: inline-block;
   position: absolute;
-}
-
-.baloons img:nth-child(even) {
-  left: -10%;
-}
-
-.baloons img:nth-child(odd) {
-  right: -10%;
-}
-
-.baloons img:nth-child(3n + 0) {
-  left: 30%;
+  display: inline-block;
+  width: clamp(40px, 10vw, 100px);
 }
 
 .eight svg {
-  width: 25px;
   position: absolute;
-  top: 0;
-  left: 0;
+  width: clamp(16px, 4vw, 25px);
   visibility: hidden;
   z-index: -1;
 }
@@ -196,37 +194,6 @@ canvas {
 .eight svg:nth-child(7) { top: 68vh; left: 83vw; fill: #e3bae8; }
 .eight svg:nth-child(8) { top: 86vh; left: 37vw; fill: #8762cb; }
 .eight svg:nth-child(9) { top: 94vh; left: 87vw; fill: #9a90da; }
-
-.wish-hbd {
-  font-size: 3em;
-  margin: 0;
-}
-
-.wish h5 {
-  font-weight: lighter;
-  font-size: 2rem;
-  margin: 10px 0 0;
-}
-
-.nine p {
-  font-size: 2rem;
-  font-weight: lighter;
-}
-
-#replay {
-  z-index: 3;
-  cursor: pointer;
-}
-
-/* Animations */
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 .play-pause {
   width: 50px;
@@ -247,6 +214,11 @@ canvas {
 .play-pause.playing {
   background-image: url('../img/pause.svg');
   animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .startSign {
@@ -272,54 +244,4 @@ canvas {
 .startSign .button:hover {
   background-color: #03C160;
   color: #fff;
-}
-
-/* Responsive Queries */
-@media screen and (max-width: 768px) {
-  html {
-    font-size: 14px;
-  }
-
-  .one { font-size: 3rem; }
-  .three { font-size: 2.5rem; }
-  .five .idea-5 { font-size: 3rem; }
-  .idea-6 span { font-size: 8rem; }
-  .wish-hbd { font-size: 2.2em; }
-  .wish h5 { font-size: 1.5rem; }
-  .text-box .fake-btn {
-    position: static;
-    display: block;
-    margin-top: 10px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  html {
-    font-size: 12px;
-  }
-
-  .one { font-size: 2rem; }
-  .three { font-size: 1.8rem; }
-  .five .idea-5 { font-size: 2.5rem; }
-  .idea-6 span { font-size: 6rem; }
-  .six .hat {
-    width: 50px;
-    top: -20px;
-    left: 42%;
-  }
-  .baloons img {
-    width: 50px;
-  }
-  .eight svg {
-    width: 16px;
-  }
-  .nine p {
-    font-size: 1.5rem;
-  }
-  .play-pause {
-    width: 40px;
-    height: 40px;
-    right: 3vw;
-    top: 3vh;
-  }
 }
